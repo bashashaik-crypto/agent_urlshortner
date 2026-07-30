@@ -8,6 +8,8 @@ Requires Java 21. Start with `./gradlew bootRun` (Windows: `gradlew.bat bootRun`
 
 The in-memory H2 console is available at `/h2-console`; JDBC URL is `jdbc:h2:mem:urlshortener`.
 
+Swagger UI is available at `http://localhost:8081/swagger-ui.html`. The generated OpenAPI specification is available at `/v3/api-docs` (JSON) and `/v3/api-docs.yaml` (YAML).
+
 ## Core URL API
 
 | Operation | Endpoint | Result |
