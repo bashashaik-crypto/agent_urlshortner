@@ -1,0 +1,3 @@
+package com.shortner.agent.orchestration.entity;
+import com.shortner.agent.orchestration.model.Stage; import jakarta.persistence.*; import java.time.*;
+@Entity public class AuditEvent { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @ManyToOne(optional=false) private WorkflowRun run; @Enumerated(EnumType.STRING) private Stage stage; @Column(nullable=false) private Instant at=Instant.now(); @Column(nullable=false,length=2000) private String event; protected AuditEvent(){} public AuditEvent(WorkflowRun run,Stage stage,String event){this.run=run;this.stage=stage;this.event=event;} public Long getId(){return id;} public Stage getStage(){return stage;} public Instant getAt(){return at;} public String getEvent(){return event;} }

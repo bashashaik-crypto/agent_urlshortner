@@ -1,0 +1,3 @@
+package com.shortner.agent.exception;
+import org.springframework.http.*; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestControllerAdvice public class ApiExceptionHandler { @ExceptionHandler(NoSuchElementException.class) ResponseEntity<Map<String,String>> missing(Exception e){return error(HttpStatus.NOT_FOUND,e.getMessage());}@ExceptionHandler({IllegalArgumentException.class,org.springframework.web.bind.MethodArgumentNotValidException.class,IllegalStateException.class}) ResponseEntity<Map<String,String>> bad(Exception e){return error(HttpStatus.BAD_REQUEST,e.getMessage());}private ResponseEntity<Map<String,String>> error(HttpStatus status,String message){return ResponseEntity.status(status).body(Map.of("error",message));}}
